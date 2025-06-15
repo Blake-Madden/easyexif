@@ -899,14 +899,16 @@ easyexif::ParseError easyexif::EXIFInfo::parseEXIFSubIFD(
 
       case 0xa20e:
         // EXIF Focal plane X-resolution
-        if (result.isFormat(UnsignedRational)) {
+        if (result.isFormat(UnsignedRational) &&
+            !result.val_rational().empty()) {
           LensInfo.FocalPlaneXResolution = result.val_rational()[0];
         }
         break;
 
       case 0xa20f:
         // EXIF Focal plane Y-resolution
-        if (result.isFormat(UnsignedRational)) {
+        if (result.isFormat(UnsignedRational) &&
+            !result.val_rational().empty()) {
           LensInfo.FocalPlaneYResolution = result.val_rational()[0];
         }
         break;
@@ -943,7 +945,7 @@ easyexif::ParseError easyexif::EXIFInfo::parseEXIFSubIFD(
         // Focal length and FStop.
         if (result.isFormat(UnsignedRational)) {
           auto sz = static_cast<unsigned int>(result.val_rational().size());
-          if (sz) LensInfo.FocalLengthMin = result.val_rational()[0];
+          if (sz > 0) LensInfo.FocalLengthMin = result.val_rational()[0];
           if (sz > 1) LensInfo.FocalLengthMax = result.val_rational()[1];
           if (sz > 2) LensInfo.FStopMin = result.val_rational()[2];
           if (sz > 3) LensInfo.FStopMax = result.val_rational()[3];
