@@ -128,7 +128,7 @@ class IFEntry {
   // functions to access the data
   //
   // !! it's CALLER responsibility to check that format !!
-  // !! is correct before accessing it's field          !!
+  // !! is correct before accessing its field           !!
   //
   // - getters are use here to allow future addition
   //   of checks if format is correct
@@ -380,7 +380,7 @@ IFEntry parseIFEntry_temp(const unsigned char *buf, const unsigned offs,
       }
       // and cut zero byte at the end, since we don't want that in the
       // std::string
-      if (result.length() &&
+      if ((result.length() > 0) &&
           result.val_string()[result.val_string().length() - 1] == '\0') {
         result.val_string().resize(result.val_string().length() - 1);
       }
