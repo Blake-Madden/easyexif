@@ -128,7 +128,7 @@ class IFEntry {
   // functions to access the data
   //
   // !! it's CALLER responsibility to check that format !!
-  // !! is correct before accessing it's field          !!
+  // !! is correct before accessing its field           !!
   //
   // - getters are use here to allow future addition
   //   of checks if format is correct
