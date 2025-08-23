@@ -90,20 +90,21 @@ class EXIFInfo {
   }
 
   // Data fields filled out by parseFrom()
-  char ByteAlign{1};                // 0 = Motorola byte alignment, 1 = Intel
-  std::string ImageDescription;     // Image description
-  std::string Make;                 // Camera manufacturer's name
-  std::string Model;                // Camera model
+  char ByteAlign{1};             // 0 = Motorola byte alignment, 1 = Intel
+  std::string ImageDescription;  // Image description
+  std::string Make;              // Camera manufacturer's name
+  std::string Model;             // Camera model
   unsigned short Orientation{
       std::numeric_limits<unsigned short>::max()};  // Image orientation
-                                    // 1: Horizontal (normal)
-                                    // 2: Mirror horizontal
-                                    // 3: Rotate 180
-                                    // 4: Mirror vertical
-                                    // 5: Mirror horizontal and rotate 270 CW
-                                    // 6: Rotate 90 CW
-                                    // 7: Mirror horizontal and rotate 90 CW
-                                    // 8: Rotate 270 CW
+                                                    // 1: Horizontal (normal)
+                                                    // 2: Mirror horizontal
+                                                    // 3: Rotate 180
+                                                    // 4: Mirror vertical
+                                                    // 5: Mirror horizontal and
+                                                    // rotate 270 CW 6: Rotate
+                                                    // 90 CW 7: Mirror
+                                                    // horizontal and rotate 90
+                                                    // CW 8: Rotate 270 CW
   unsigned short BitsPerSample{8};  // Number of bits per component
   double XResolution{72};  // Num pixels per <ResolutionUnit> - 72dpi by default
   double YResolution{72};  // Num pixels per <ResolutionUnit> - 72dpi by default
@@ -173,10 +174,10 @@ class EXIFInfo {
                                                     // Automatic mode
   unsigned short MeteringMode{0};                   // Metering mode
                                                     // 1: average
-                                   // 2: center weighted average
-                                   // 3: spot
-                                   // 4: multi-spot
-                                   // 5: multi-segment
+  // 2: center weighted average
+  // 3: spot
+  // 4: multi-spot
+  // 5: multi-segment
   unsigned short ColorSpace{
       std::numeric_limits<unsigned short>::max()};  // 0x1 = sRGB
                                                     // 0x2 = Adobe RGB
