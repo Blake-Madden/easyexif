@@ -94,7 +94,8 @@ class EXIFInfo {
   std::string ImageDescription;     // Image description
   std::string Make;                 // Camera manufacturer's name
   std::string Model;                // Camera model
-  unsigned short Orientation{1};    // Image orientation
+  unsigned short Orientation{
+      std::numeric_limits<unsigned short>::max()};  // Image orientation
                                     // 1: Horizontal (normal)
                                     // 2: Mirror horizontal
                                     // 3: Rotate 180
