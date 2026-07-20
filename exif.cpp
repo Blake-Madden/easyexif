@@ -436,9 +436,9 @@ void parseIFEntryHeader(const unsigned char *buf, bool alignIntel,
                         unsigned &length, unsigned &data) {
   if (alignIntel) {
     parseIFEntryHeader<true>(buf, tag, format, length, data);
+  } else {
+    parseIFEntryHeader<false>(buf, tag, format, length, data);
   }
-
-  parseIFEntryHeader<false>(buf, tag, format, length, data);
 }
 
 IFEntry parseIFEntry(const unsigned char *buf, const unsigned offs,
