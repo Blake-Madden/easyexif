@@ -1015,7 +1015,7 @@ easyexif::ParseError easyexif::EXIFInfo::parseGPSSubIFD(
         // GPS latitude
         if ((format == UnsignedRational || format == SignedRational) &&
             length == 3) {
-          if (data + TIFFHeaderStart + 16 > len) {
+          if (data + TIFFHeaderStart + 24 > len) {
             return ParseError::GPSDataCorrupt;
           }
 
@@ -1059,7 +1059,7 @@ easyexif::ParseError easyexif::EXIFInfo::parseGPSSubIFD(
         // GPS longitude
         if ((format == UnsignedRational || format == SignedRational) &&
             length == 3) {
-          if (data + TIFFHeaderStart + 16 > len) {
+          if (data + TIFFHeaderStart + 24 > len) {
             return ParseError::GPSDataCorrupt;
           }
 
