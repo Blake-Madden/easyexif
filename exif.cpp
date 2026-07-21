@@ -1097,7 +1097,7 @@ easyexif::ParseError easyexif::EXIFInfo::parseGPSSubIFD(
       case 6:
         // GPS altitude
         if (format == UnsignedRational || format == SignedRational) {
-          if (data + TIFFHeaderStart > len) {
+          if (data + TIFFHeaderStart + 8 > len) {
             return ParseError::GPSDataCorrupt;
           }
 
@@ -1113,7 +1113,7 @@ easyexif::ParseError easyexif::EXIFInfo::parseGPSSubIFD(
       case 11:
         // GPS degree of precision (DOP)
         if (format == UnsignedRational || format == SignedRational) {
-          if (data + TIFFHeaderStart > len) {
+          if (data + TIFFHeaderStart + 8 > len) {
             return ParseError::GPSDataCorrupt;
           }
 
