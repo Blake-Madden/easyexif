@@ -996,7 +996,7 @@ easyexif::ParseError easyexif::EXIFInfo::parseGPSSubIFD(
     switch (tag) {
       case 1:
         // GPS north or south
-        if (offs + 8 > len) {
+        if (offs + 8 >= len) {
           return ParseError::GPSDataCorrupt;
         }
 
@@ -1040,7 +1040,7 @@ easyexif::ParseError easyexif::EXIFInfo::parseGPSSubIFD(
 
       case 3:
         // GPS east or west
-        if (offs + 8 > len) {
+        if (offs + 8 >= len) {
           return ParseError::GPSDataCorrupt;
         }
 
@@ -1083,7 +1083,7 @@ easyexif::ParseError easyexif::EXIFInfo::parseGPSSubIFD(
 
       case 5:
         // GPS altitude reference (below or above sea level)
-        if (offs + 8 > len) {
+        if (offs + 8 >= len) {
           return ParseError::GPSDataCorrupt;
         }
 
